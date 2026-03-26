@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  body {
+    @apply m-0 min-h-screen bg-[#060d15] text-[#e7edf5] antialiased;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'Sora', sans-serif;
+  }
+
+  #root {
+    @apply w-full overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .pretty-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(34 211 238 / 0.65) rgb(15 23 42 / 0.85);
+  }
+
+  .pretty-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .pretty-scroll::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+
+  .pretty-scroll::-webkit-scrollbar-track {
+    border-radius: 9999px;
+    background: rgb(15 23 42 / 0.7);
+    border: 1px solid rgb(51 65 85 / 0.55);
+  }
+
+  .pretty-scroll::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    background: linear-gradient(90deg, rgb(14 116 144 / 0.95), rgb(5 150 105 / 0.85));
+    border: 1px solid rgb(8 47 73 / 0.8);
+  }
+
+  .pretty-scroll::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, rgb(8 145 178), rgb(16 185 129));
+  }
+}
