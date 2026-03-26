@@ -28,6 +28,13 @@ export const skillCards = [
 
 export const deployedProjects = [
   {
+    name: 'Diether-Pano-Portfolio',
+    description: 'Personal portfolio website showcasing projects, skills, and experience.',
+    url: 'https://dietherpano.netlify.app/',
+    previewImage: 'https://s.wordpress.com/mshots/v1/https://dietherpano.netlify.app/?w=1200',
+    stack: ['JavaScript', 'CSS', 'HTML'],
+  },
+  {
     name: 'Code-Mania',
     description: 'Deployed learn-to-code platform with coding terminals, quizzes, and weekly challenges.',
     url: 'https://codemania.fun',
