@@ -41,7 +41,8 @@ export default function ContactSection({ githubUsername, contactInfo }) {
 
       <div className="flex flex-wrap gap-3">
         <a
-          href="#"
+          href="/Diether-Pano-Resume.pdf"
+          download="Diether-Pano-Resume.pdf"
           className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
         >
           <DocumentIcon className="h-4 w-4" />

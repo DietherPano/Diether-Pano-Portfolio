@@ -100,7 +100,7 @@ export default function AboutSection({
             {githubData.profile?.twitter && <li>@{githubData.profile.twitter}</li>}
           </ul>
 
-          <div className="h-px bg-slate-800" />
+          <div className="h-px w-full bg-slate-800" />
 
           <div className="space-y-3">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Highlights</p>
@@ -124,7 +124,7 @@ export default function AboutSection({
             </div>
           </div>
 
-          <div className="h-px bg-slate-800" />
+          <div className="h-px w-full bg-slate-800" />
 
           <div className="space-y-3">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Organizations</p>
@@ -158,7 +158,7 @@ export default function AboutSection({
           </div>
         </aside>
 
-        <div className="min-w-0 space-y-5 rounded-2xl border border-slate-800/70 bg-slate-900/45 p-5">
+        <div className="min-w-0 space-y-5 overflow-hidden rounded-2xl border border-slate-800/70 bg-slate-900/45 p-4 sm:p-5">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <h3 className="text-xl font-semibold text-slate-100">Popular repositories</h3>
@@ -178,7 +178,7 @@ export default function AboutSection({
                 href={repo.html_url}
                 target="_blank"
                 rel="noreferrer"
-                className="space-y-3 rounded-xl border border-slate-800 bg-slate-950/60 p-4 transition hover:-translate-y-0.5 hover:border-cyan-300/40"
+                className="min-w-0 space-y-3 overflow-hidden rounded-xl border border-slate-800 bg-slate-950/60 p-4 transition hover:-translate-y-0.5 hover:border-cyan-300/40"
               >
                 <div className="flex items-start gap-2">
                   <h4 className="min-w-0 flex-1 truncate text-base font-semibold text-slate-100">{repo.name}</h4>
@@ -240,7 +240,7 @@ export default function AboutSection({
                 ref={chartScrollRef}
                 className="pretty-scroll overflow-x-auto rounded-lg border border-slate-800/80 bg-slate-900/35 px-3 py-3"
               >
-                <div className="min-w-[720px]">
+                <div className="min-w-[620px] sm:min-w-[720px]">
                   <div className="mb-1 grid grid-cols-[28px_1fr] gap-2">
                     <div />
                     <div className="grid grid-cols-[repeat(53,minmax(0,12px))] gap-[2px] text-[11px] text-slate-400">
