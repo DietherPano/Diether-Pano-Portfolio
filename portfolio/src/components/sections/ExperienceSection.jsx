@@ -3,7 +3,7 @@ export default function ExperienceSection() {
     <section id="experience" className="space-y-5">
       <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">Experience</h2>
 
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid gap-4 min-[700px]:grid-cols-2">
         <article className="space-y-4 rounded-2xl border border-slate-800/70 bg-slate-900/45 p-5">
           <p className="text-xs font-semibold uppercase tracking-widest text-cyan-200">Work Experience</p>
           <div className="space-y-3">

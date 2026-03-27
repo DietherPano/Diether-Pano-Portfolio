@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section
       id="home"
       aria-labelledby="hero-title"
-      className="grid gap-10 overflow-hidden rounded-3xl border border-slate-800/70 bg-slate-900/40 p-6 shadow-2xl shadow-cyan-950/30 sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:items-center"
+      className="grid gap-10 overflow-hidden rounded-3xl border border-slate-800/70 bg-slate-900/40 p-6 shadow-2xl shadow-cyan-950/30 sm:p-10 min-[700px]:grid-cols-[1.2fr_1fr] min-[700px]:items-center"
     >
       <div className="space-y-5">
         <p className="inline-flex rounded-full border border-cyan-300/40 bg-cyan-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-cyan-100">

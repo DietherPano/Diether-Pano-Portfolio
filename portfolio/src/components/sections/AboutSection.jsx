@@ -49,8 +49,8 @@ export default function AboutSection({
     <section id="about" className="space-y-5">
       <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">About Me</h2>
 
-      <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)] lg:items-stretch">
-        <aside className="flex h-full flex-col items-center space-y-5 rounded-2xl border border-slate-800/70 bg-slate-900/45 p-5 text-center">
+      <div className="grid gap-6 min-[700px]:grid-cols-[280px_minmax(0,1fr)] min-[700px]:items-start">
+        <aside className="flex h-fit flex-col items-center space-y-5 rounded-2xl border border-slate-800/70 bg-slate-900/45 p-5 text-center">
           <div className="relative w-fit">
             <img
               src={githubData.profile?.avatarUrl || `https://github.com/${githubUsername}.png`}

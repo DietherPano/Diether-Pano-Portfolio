@@ -10,7 +10,7 @@
     scroll-margin-top: 8.5rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 700px) {
     section[id] {
       scroll-margin-top: 5.5rem;
     }

@@ -28,8 +28,11 @@ function App() {
 
       <Header navItems={navItems} socialLinks={socialLinks} />
 
-      <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 pb-16 pt-32 sm:px-6 md:pt-24 lg:px-8">
+      <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 pb-16 pt-32 sm:px-6 min-[700px]:pt-24 lg:px-8">
         <HeroSection />
+        <SkillsSection skillCards={skillCards} />
+        <ExperienceSection />
+        <ProjectsSection githubData={githubData} deployedProjects={deployedProjects} />
         <AboutSection
           githubData={githubData}
           githubUsername={githubUsername}
@@ -37,9 +40,6 @@ function App() {
           setSelectedYear={setSelectedYear}
           yearOptions={yearOptions}
         />
-        <SkillsSection skillCards={skillCards} />
-        <ProjectsSection githubData={githubData} deployedProjects={deployedProjects} />
-        <ExperienceSection />
         <ContactSection githubUsername={githubUsername} contactInfo={contactInfo} />
       </main>
     </div>
