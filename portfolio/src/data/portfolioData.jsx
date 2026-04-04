@@ -24,6 +24,13 @@ export const skillCards = [
     description: 'Schema design, query optimization, and cloud deployment for reliable systems.',
     tags: ['MySQL', 'PostgreSQL', 'Docker', 'AWS EC2', 'GitHub Actions'],
   },
+  {
+    iconUrl: 'https://cdn.simpleicons.org/anthropic/7dd3fc',
+    iconAlt: 'Claude logo',
+    title: 'AI Tools',
+    description: 'AI-assisted workflows for faster development, debugging, and content drafting.',
+    tags: ['Codex', 'ChatGPT', 'Claude', 'Gemini'],
+  },
 ]
 
 export const deployedProjects = [
