@@ -37,7 +37,7 @@ export default function Header({ navItems, socialLinks }) {
       <div className="mx-auto w-full max-w-6xl px-4 py-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
           <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="Go to top" onClick={scrollToSection('home')}>
-            <span className="grid h-9 w-9 shrink-0 place-content-center rounded-xl bg-cyan-500/20 text-sm font-semibold text-cyan-200 ring-1 ring-cyan-300/30">
+            <span className="brand-node grid h-9 w-9 shrink-0 place-content-center rounded-xl bg-cyan-500/20 text-sm font-semibold text-cyan-200 ring-1 ring-cyan-300/30">
               DP
             </span>
             <strong className="truncate text-sm font-semibold tracking-wide text-slate-100 sm:text-base">Diether Pano</strong>

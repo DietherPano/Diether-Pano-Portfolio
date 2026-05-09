@@ -6,9 +6,15 @@ export default function HeroSection() {
     <section
       id="home"
       aria-labelledby="hero-title"
-      className="grid gap-10 overflow-hidden rounded-3xl border border-slate-800/70 bg-slate-900/40 p-6 shadow-2xl shadow-cyan-950/30 sm:p-10 min-[700px]:grid-cols-[1.2fr_1fr] min-[700px]:items-center"
+      className="reveal-up grid gap-10 overflow-hidden rounded-3xl border border-slate-800/70 bg-slate-900/40 p-6 shadow-2xl shadow-cyan-950/30 sm:p-10 min-[700px]:grid-cols-[1.2fr_1fr] min-[700px]:items-center"
+      style={{ '--reveal-delay': '40ms' }}
     >
       <div className="space-y-5">
+        <div className="dev-console-chip" aria-hidden="true">
+          <span className="dev-console-prompt">$</span>
+          <span>npm run dev</span>
+          <span className="dev-console-caret" />
+        </div>
         <p className="inline-flex rounded-full border border-cyan-300/40 bg-cyan-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-cyan-100">
           Junior Software Developer
         </p>
@@ -28,7 +34,7 @@ export default function HeroSection() {
         <img
           src={heroPhoto}
           alt="Diether Pano"
-          className="h-44 w-44 rounded-full border-2 border-cyan-300/40 object-cover object-[50%_22%] shadow-xl shadow-cyan-950/30"
+          className="hero-photo-pop h-44 w-44 rounded-full border-2 border-cyan-300/40 object-cover object-[50%_22%] shadow-xl shadow-cyan-950/30"
           loading="eager"
         />
         <div className="flex flex-wrap justify-center gap-3">

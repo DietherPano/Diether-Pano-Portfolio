@@ -1,6 +1,9 @@
 import { FacebookIcon, GitHubIcon, InstagramIcon, LinkedInIcon } from '../components/icons/icons'
 
 export const navItems = ['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact']
+const previewVersion = '2026-05-09'
+const getMshotsPreview = (url) =>
+  `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=1200&v=${previewVersion}`
 
 export const skillCards = [
   {
@@ -38,14 +41,14 @@ export const deployedProjects = [
     name: 'Diether-Pano-Portfolio',
     description: 'Personal portfolio website showcasing projects, skills, and experience.',
     url: 'https://dietherpano.netlify.app/',
-    previewImage: 'https://s.wordpress.com/mshots/v1/https://dietherpano.netlify.app/?w=1200',
+    previewImage: getMshotsPreview('https://dietherpano.netlify.app/'),
     stack: ['JavaScript', 'CSS', 'HTML'],
   },
   {
     name: 'Code-Mania',
     description: 'Deployed learn-to-code platform with coding terminals, quizzes, and weekly challenges.',
     url: 'https://codemania.fun',
-    previewImage: 'https://s.wordpress.com/mshots/v1/https://codemania.fun?w=1200',
+    previewImage: getMshotsPreview('https://codemania.fun'),
     stack: ['JavaScript', 'HTML', 'CSS'],
   },
 ]

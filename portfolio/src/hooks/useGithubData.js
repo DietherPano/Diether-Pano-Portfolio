@@ -9,7 +9,6 @@ const initialState = {
   profile: null,
   popularRepos: [],
   personalProjects: [],
-  organizationProjects: [],
   repositoryCount: 0,
   stars: 0,
   contributions: 0,
@@ -133,11 +132,6 @@ export function useGithubData({ githubUsername, githubToken, selectedYear }) {
         })
         const orgs = orgsRes.ok ? await orgsRes.json() : []
 
-        const eventsRes = await fetch(`https://api.github.com/users/${githubUsername}/events/public?per_page=100`, {
-          headers: restHeaders,
-        })
-        const events = eventsRes.ok ? await eventsRes.json() : []
-
         const stars = repos.reduce((total, repo) => total + repo.stargazers_count, 0)
 
         const popularRepos = [...repos]
@@ -149,43 +143,7 @@ export function useGithubData({ githubUsername, githubToken, selectedYear }) {
           .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
           .slice(0, 6)
 
-        const projectEventTypes = new Set([
-          'PushEvent',
-          'PullRequestEvent',
-          'PullRequestReviewEvent',
-          'CreateEvent',
-        ])
-
-        const organizationRepoNames = [
-          ...new Set(
-            events
-              .filter((event) => projectEventTypes.has(event.type))
-              .map((event) => event.repo?.name)
-              .filter((name) => {
-                if (!name) return false
-                const owner = name.split('/')[0]
-                return owner && owner.toLowerCase() !== githubUsername.toLowerCase()
-              }),
-          ),
-        ].slice(0, 8)
-
-        const organizationRepoDetails = await Promise.all(
-          organizationRepoNames.map(async (fullName) => {
-            const response = await fetch(`https://api.github.com/repos/${fullName}`, { headers: restHeaders })
-            if (!response.ok) return null
-            return response.json()
-          }),
-        )
-
-        const organizationProjectsRaw = organizationRepoDetails
-          .filter(Boolean)
-          .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
-          .slice(0, 6)
-
-        const [personalProjects, organizationProjects] = await Promise.all([
-          Promise.all(personalProjectsRaw.map(fetchRepoStack)),
-          Promise.all(organizationProjectsRaw.map(fetchRepoStack)),
-        ])
+        const personalProjects = await Promise.all(personalProjectsRaw.map(fetchRepoStack))
 
         setGithubData((prev) => ({
           ...prev,
@@ -213,7 +171,6 @@ export function useGithubData({ githubUsername, githubToken, selectedYear }) {
           },
           popularRepos,
           personalProjects,
-          organizationProjects,
           repositoryCount: user.public_repos || repos.length,
           stars,
         }))

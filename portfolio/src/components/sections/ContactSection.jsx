@@ -4,15 +4,15 @@ export default function ContactSection({ githubUsername, contactInfo }) {
   const { emailAddress, gmailComposeUrl, linkedInUrl } = contactInfo
 
   return (
-    <section id="contact" className="space-y-5">
-      <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">Contact</h2>
+    <section id="contact" className="reveal-up space-y-5" style={{ '--reveal-delay': '440ms' }}>
+      <h2 className="dev-section-title text-2xl font-semibold text-slate-50 sm:text-3xl">Contact</h2>
 
       <div className="grid gap-4 md:grid-cols-2">
         <a
           href={gmailComposeUrl}
           target="_blank"
           rel="noreferrer"
-          className="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/45 p-5 transition hover:border-cyan-300/40"
+          className="hover-lift flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/45 p-5 transition hover:border-cyan-300/40"
         >
           <span className="rounded-xl border border-cyan-300/40 bg-cyan-500/10 p-2 text-cyan-100">
             <MailIcon />
@@ -27,7 +27,7 @@ export default function ContactSection({ githubUsername, contactInfo }) {
           href={linkedInUrl}
           target="_blank"
           rel="noreferrer"
-          className="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/45 p-5 transition hover:border-cyan-300/40"
+          className="hover-lift flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/45 p-5 transition hover:border-cyan-300/40"
         >
           <span className="rounded-xl border border-cyan-300/40 bg-cyan-500/10 p-2 text-cyan-100">
             <LinkedInIcon />

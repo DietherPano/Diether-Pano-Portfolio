@@ -14,7 +14,7 @@ function TechTag({ label }) {
 function RepoCard({ repo }) {
   return (
     <a
-      className="flex h-full flex-col gap-3 rounded-xl border border-slate-800 bg-slate-950/60 p-4 transition hover:-translate-y-0.5 hover:border-cyan-300/40"
+      className="hover-lift flex h-full flex-col gap-3 rounded-xl border border-slate-800 bg-slate-950/60 p-4 transition hover:border-cyan-300/40"
       href={repo.html_url}
       target="_blank"
       rel="noreferrer"
@@ -30,9 +30,12 @@ function RepoCard({ repo }) {
   )
 }
 
-function ProjectGroup({ title, children }) {
+function ProjectGroup({ title, delay = '0ms', children }) {
   return (
-    <div className="space-y-4 rounded-2xl border border-slate-800/70 bg-slate-900/45 p-5">
+    <div
+      className="dev-panel reveal-up space-y-4 rounded-2xl border border-slate-800/70 bg-slate-900/45 p-5"
+      style={{ '--reveal-delay': delay }}
+    >
       <h3 className="text-xl font-semibold text-slate-100">{title}</h3>
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{children}</div>
     </div>
@@ -41,35 +44,21 @@ function ProjectGroup({ title, children }) {
 
 export default function ProjectsSection({ githubData, deployedProjects }) {
   return (
-    <section id="projects" className="space-y-5">
-      <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">Projects</h2>
+    <section id="projects" className="reveal-up space-y-5" style={{ '--reveal-delay': '180ms' }}>
+      <h2 className="dev-section-title text-2xl font-semibold text-slate-50 sm:text-3xl">Projects</h2>
 
       <div className="space-y-5">
-        <ProjectGroup title="Organization Projects">
-          {githubData.organizationProjects.map((repo) => (
-            <RepoCard key={repo.id} repo={repo} />
-          ))}
-          {!githubData.loading && githubData.organizationProjects.length === 0 && (
-            <article className="rounded-xl border border-slate-800 bg-slate-950/60 p-4">
-              <h4 className="text-base font-semibold text-slate-100">No organization projects yet</h4>
-              <p className="mt-2 text-sm text-slate-300">
-                Contribute to public organization repositories to show items here.
-              </p>
-            </article>
-          )}
-        </ProjectGroup>
-
-        <ProjectGroup title="Personal Projects">
+        <ProjectGroup title="Personal Projects" delay="240ms">
           {githubData.personalProjects.map((repo) => (
             <RepoCard key={repo.id} repo={repo} />
           ))}
         </ProjectGroup>
 
-        <ProjectGroup title="Deployed Projects">
+        <ProjectGroup title="Deployed Projects" delay="300ms">
           {deployedProjects.map((project) => (
             <a
               key={project.name}
-              className="flex h-full flex-col gap-3 rounded-xl border border-slate-800 bg-slate-950/60 p-4 transition hover:-translate-y-0.5 hover:border-cyan-300/40"
+              className="hover-lift flex h-full flex-col gap-3 rounded-xl border border-slate-800 bg-slate-950/60 p-4 transition hover:border-cyan-300/40"
               href={project.url}
               target="_blank"
               rel="noreferrer"

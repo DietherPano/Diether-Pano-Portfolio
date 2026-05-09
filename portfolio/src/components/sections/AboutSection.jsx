@@ -17,13 +17,6 @@ export default function AboutSection({
 }) {
   const chartScrollRef = useRef(null)
   const organizations = githubData.profile?.organizations || []
-  const fallbackOrganizationNames = [
-    ...new Set(
-      (githubData.organizationProjects || [])
-        .map((repo) => repo?.full_name?.split('/')?.[0])
-        .filter(Boolean),
-    ),
-  ].slice(0, 6)
 
   const visibleMonthMarkers = githubData.monthMarkers.reduce((acc, marker) => {
     if (!acc.length) {
@@ -46,11 +39,14 @@ export default function AboutSection({
   }, [selectedYear, githubData.monthMarkers])
 
   return (
-    <section id="about" className="space-y-5">
-      <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">About Me</h2>
+    <section id="about" className="reveal-up space-y-5" style={{ '--reveal-delay': '360ms' }}>
+      <h2 className="dev-section-title text-2xl font-semibold text-slate-50 sm:text-3xl">About Me</h2>
 
       <div className="grid gap-6 min-[700px]:grid-cols-[280px_minmax(0,1fr)] min-[700px]:items-start">
-        <aside className="flex h-fit flex-col items-center space-y-5 rounded-2xl border border-slate-800/70 bg-slate-900/45 p-5 text-center">
+        <aside
+          className="reveal-up flex h-fit flex-col items-center space-y-5 rounded-2xl border border-slate-800/70 bg-slate-900/45 p-5 text-center"
+          style={{ '--reveal-delay': '420ms' }}
+        >
           <div className="relative w-fit">
             <img
               src={githubData.profile?.avatarUrl || `https://github.com/${githubUsername}.png`}
@@ -142,15 +138,6 @@ export default function AboutSection({
                     <span>{org.login}</span>
                   </a>
                 ))
-              ) : fallbackOrganizationNames.length > 0 ? (
-                fallbackOrganizationNames.map((orgName) => (
-                  <span
-                    key={orgName}
-                    className="inline-flex items-center rounded-md border border-slate-700 bg-slate-800/70 px-2 py-1 text-[11px] text-slate-200"
-                  >
-                    {orgName}
-                  </span>
-                ))
               ) : (
                 <span className="text-xs text-slate-500">No public orgs yet</span>
               )}
@@ -158,7 +145,10 @@ export default function AboutSection({
           </div>
         </aside>
 
-        <div className="min-w-0 space-y-5 overflow-hidden rounded-2xl border border-slate-800/70 bg-slate-900/45 p-4 sm:p-5">
+        <div
+          className="reveal-up min-w-0 space-y-5 overflow-hidden rounded-2xl border border-slate-800/70 bg-slate-900/45 p-4 sm:p-5"
+          style={{ '--reveal-delay': '460ms' }}
+        >
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <h3 className="text-xl font-semibold text-slate-100">Popular repositories</h3>
@@ -178,7 +168,7 @@ export default function AboutSection({
                 href={repo.html_url}
                 target="_blank"
                 rel="noreferrer"
-                className="min-w-0 space-y-3 overflow-hidden rounded-xl border border-slate-800 bg-slate-950/60 p-4 transition hover:-translate-y-0.5 hover:border-cyan-300/40"
+                className="hover-lift min-w-0 space-y-3 overflow-hidden rounded-xl border border-slate-800 bg-slate-950/60 p-4 transition hover:border-cyan-300/40"
               >
                 <div className="flex items-start gap-2">
                   <h4 className="min-w-0 flex-1 truncate text-base font-semibold text-slate-100">{repo.name}</h4>
@@ -203,7 +193,7 @@ export default function AboutSection({
             )}
           </div>
 
-          <article className="space-y-4 rounded-xl border border-slate-800 bg-slate-950/60 p-4">
+          <article className="dev-panel space-y-4 rounded-xl border border-slate-800 bg-slate-950/60 p-4">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h3 className="text-lg font-semibold text-slate-100">
                 {githubData.loading

@@ -22,8 +22,8 @@ function App() {
   return (
     <div className="relative">
       <div className="pointer-events-none fixed inset-0 -z-10">
-        <div className="absolute -left-32 -top-24 h-80 w-80 rounded-full bg-cyan-500/20 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-emerald-500/10 blur-3xl" />
+        <div className="ambient-blob absolute -left-32 -top-24 h-80 w-80 rounded-full bg-cyan-500/20 blur-3xl" />
+        <div className="ambient-blob ambient-blob-delay absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-emerald-500/10 blur-3xl" />
       </div>
 
       <Header navItems={navItems} socialLinks={socialLinks} />
